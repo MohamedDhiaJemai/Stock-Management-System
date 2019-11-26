@@ -110,17 +110,34 @@ public class ClientImplement implements ClientRepository {
 	}
 
 	@Override
-	public Entities.Client consulterClient(String id) {
+	public String consulterClient(int i) {
 		// TODO Auto-generated method stub
 		
 		String sql="";
+		Client c = null;
 		try {
-			sql = "SELECT * FROM client WHERE ID="+id;
+			sql = "SELECT * FROM client WHERE idclient="+i;
 			rs=st.executeQuery(sql);
 		} catch (SQLException e) {
 			System.err.println(e);
 		}
-		return (Client) rs;
+		try {
+			while (rs.next()) {
+			c = new Client(
+						rs.getInt("idclient"),
+						rs.getString("Code_tva"),
+						rs.getString("Adresse"),
+						rs.getString("email"),
+						rs.getString("telephone"),
+						rs.getString("fax"),
+						rs.getString("raison_sociale")
+						);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return c.toString() ;
 	}
 
 }
