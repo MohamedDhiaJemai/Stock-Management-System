@@ -11,6 +11,6 @@ public interface ClientRepository {
 	public void deleteClient(int id);
 	public Client modifierClient(Client c, String id);
 	public ArrayList<Client> allClient();
-	public Client consulterClient(String id);
+	public String consulterClient(int id);
 	
 }

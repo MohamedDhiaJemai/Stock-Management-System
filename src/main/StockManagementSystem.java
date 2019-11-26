@@ -14,7 +14,8 @@ public class StockManagementSystem {
 		ClientImplement ci = new ClientImplement();
 		//Client c = new Client();
 		
-		System.out.println(ci.allClient());
+		System.out.println(ci.consulterClient(3));
+		//System.out.println(ci.consulterClient(3).get)
 	}
 
 }
